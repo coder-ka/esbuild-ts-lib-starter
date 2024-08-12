@@ -11,8 +11,8 @@
     }
   },
   "scripts": {
-    "build:cjs": "esbuild src/main.ts --bundle --format=cjs --outfile=dist/index.cjs",
-    "build:esm": "esbuild src/main.ts --bundle --format=esm --outfile=dist/index.mjs",
+    "build:cjs": "esbuild src/index.ts --bundle --format=cjs --outfile=dist/index.cjs",
+    "build:esm": "esbuild src/index.ts --bundle --format=esm --outfile=dist/index.mjs",
     "build": "tsc && npm run build:esm && npm run build:cjs",
     "build:node:cjs": "npm run build:cjs -- --platform=node",
     "build:node:esm": "npm run build:esm -- --platform=node",
