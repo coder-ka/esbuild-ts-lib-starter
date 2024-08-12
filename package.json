@@ -2,12 +2,12 @@
   "name": "esbuild-ts-lib-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "main.cjs",
+  "main": "index.cjs",
   "exports": {
     ".": {
-      "import": "./dist/main.mjs",
-      "require": "./dist/main.cjs",
-      "types": "./types/main.d.ts"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./types/index.d.ts"
     }
   },
   "scripts": {
