@@ -2,6 +2,7 @@
   "name": "esbuild-ts-lib-starter",
   "version": "1.0.0",
   "description": "",
+  "bin": "dist/bin.cjs",
   "main": "./dist/index.cjs",
   "exports": {
     ".": {
@@ -16,14 +17,10 @@
     "package.json"
   ],
   "scripts": {
-    "build:cjs": "esbuild src/index.ts --bundle --format=cjs --outfile=dist/index.cjs",
-    "build:esm": "esbuild src/index.ts --bundle --format=esm --outfile=dist/index.mjs",
-    "build": "tsc && npm run build:esm && npm run build:cjs",
-    "build:node:cjs": "npm run build:cjs -- --platform=node",
-    "build:node:esm": "npm run build:esm -- --platform=node",
-    "build:node": "tsc && npm run build:node:esm && npm run build:node:cjs",
-    "watch": "concurrently \"tsc --watch\" \"npm run build:esm -- --watch\" \"npm run build:cjs -- --watch\"",
-    "watch:node": "concurrently \"tsc --watch\" \"npm run build:node:esm -- --watch\" \"npm run build:node:cjs -- --watch\"",
+    "build": "tsc && tsx scripts/build.ts",
+    "watch": "concurrently \"tsc --watch\" \"tsx scripts/build.ts -watch\"",
+    "build:node": "tsc && tsx scripts/build-node.ts",
+    "watch:node": "concurrently \"tsc --watch\" \"tsx scripts/build-node.ts -watch\"",
     "test": "tsx tests"
   },
   "repository": {
@@ -43,6 +40,7 @@
     "assert": "^2.1.0",
     "concurrently": "^8.2.2",
     "esbuild": "^0.20.2",
+    "estrella": "^1.4.1",
     "tsx": "^4.9.3",
     "typescript": "^5.4.5"
   }
