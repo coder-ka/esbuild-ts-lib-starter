@@ -1,27 +1,27 @@
-import { build } from "estrella";
+import estrella from "estrella";
 
 export async function buildAll(
   { isNodeMode }: { isNodeMode: boolean } = { isNodeMode: false }
 ) {
   return Promise.all([
-    build({
+    estrella.build({
       entryPoints: ["./src/index.ts"],
       bundle: true,
-      outfile: "./dist/index.js",
+      outfile: "./dist/index.cjs",
       platform: isNodeMode ? "node" : undefined,
       format: "cjs",
     }),
-    build({
+    estrella.build({
       entryPoints: ["./src/index.ts"],
       bundle: true,
-      outfile: "./dist/index.js",
+      outfile: "./dist/index.mjs",
       platform: isNodeMode ? "node" : undefined,
       format: "esm",
     }),
-    build({
+    estrella.build({
       entryPoints: ["./src/bin.ts"],
       bundle: true,
-      outfile: "./dist/bin.js",
+      outfile: "./dist/bin.cjs",
       platform: isNodeMode ? "node" : undefined,
       format: "cjs",
     }),
